@@ -13,7 +13,9 @@ const theme = createTheme({
 		common: {
 			white: '#f5f5f7',
 			black: '#1d1d1f',
-			new: '#f56300'
+			new: '#f56300',
+			ribbon_background_color_initial: '#0071e3',
+			ribbon_background_color: '#1d1d1f'
 		}
 	}
 });
