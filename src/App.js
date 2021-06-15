@@ -1,12 +1,11 @@
 import React from 'react';
-import { CssBaseline, Typography } from '@material-ui/core';
-
+import { CssBaseline } from '@material-ui/core';
+import Home from './page/Home';
 function App() {
 	return (
 		<React.Fragment>
 			<CssBaseline />
-
-			<Typography variant='tile_copy'>this.state</Typography>
+			<Home />
 		</React.Fragment>
 	);
 }

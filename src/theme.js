@@ -8,9 +8,28 @@ const theme = createTheme({
 			laptop: 1068,
 			desktop: 1280
 		}
+	},
+	palette: {
+		common: {
+			white: '#f5f5f7',
+			black: '#1d1d1f',
+			new: '#f56300'
+		}
 	}
 });
+const fontSize = 17; // px
+// Tell Material-UI what's the font-size on the html element.
+// 16px is the default font-size used by browsers.
+const htmlFontSize = 17;
+const coef = fontSize / 17;
+
+// const theme = createMuiTheme({
+//   typography: {
+//     pxToRem: size => `${(size / htmlFontSize) * coef}rem`,
+//   },
+// });
 theme.typography = {
+	pxToRem: (size) => `${(size / htmlFontSize) * coef}rem`,
 	body: {
 		fontSize: '17px',
 		lineHeight: 1.47059,
@@ -57,6 +76,12 @@ theme.typography = {
 		lineHeight: 1.33337,
 		fontWeight: 400,
 		letterSpacing: '-.01em'
+	},
+	chapternav_new: {
+		fontSize: '10px',
+		lineHeight: 1.2,
+		fontWeight: 400,
+		letterSpacing: '-.008em'
 	},
 	caption: {
 		fontSize: '12px',
