@@ -44,7 +44,7 @@ const CompareTable = styled(Box, { name: 'compare-table' })(({ theme }) => ({
 	margin: '52px auto 0px auto',
 	display: 'grid',
 	gridTemplateRows: 'repeat(16,auto)',
-	gridTemplateColumns: 'repeat(2,1fr)',
+	gridTemplateColumns: 'repeat(2,minmax(150px,1fr))', //lay out breaks at 300px
 	gridTemplateAreas: `
   "iphone-12-pro-device iphone-12-device"
   "iphone-12-pro-display iphone-12-display"
@@ -68,7 +68,6 @@ const CompareTable = styled(Box, { name: 'compare-table' })(({ theme }) => ({
 	},
 	[theme.breakpoints.up('laptop')]: {
 		margin: '66px auto 0px auto',
-
 		maxWidth: '960px',
 		gap: '23px 34px',
 		gridTemplateColumns: 'repeat(4, 1fr)',
@@ -194,8 +193,8 @@ const DeviceCellularCell = styled(Box, { name: 'device-cellular-cell' })(({ them
 const CellularIcon = styled('figure', { name: 'cellular-icon' })(({ theme, icon }) => ({
 	margin: '0 auto 8px auto',
 	backgroundImage: icon.url,
-	width: icon.url.width,
-	height: icon.url.height,
+	width: icon.width,
+	height: icon.height,
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover'
 }));
@@ -210,8 +209,8 @@ const DeviceChipCell = styled(Box, { name: 'device-chip-cell' })(({ theme, gridA
 const DeviceChipCellIcon = styled('figure', { name: 'device-chip-cell' })(({ theme, icon }) => ({
 	margin: '0 auto 8px auto',
 	backgroundImage: icon.url,
-	width: icon.url.width,
-	height: icon.url.height,
+	width: icon.width,
+	height: icon.height,
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover'
 }));
@@ -226,8 +225,8 @@ const DeviceCameraCell = styled(Box, { name: 'device-camera-cell' })(({ theme, g
 const DeviceCameralCellIcon = styled('figure', { name: 'device-cameral-cell-icon' })(({ theme, icon }) => ({
 	margin: '0 auto 8px auto',
 	backgroundImage: icon.url,
-	width: icon.url.width,
-	height: icon.url.height,
+	width: icon.width,
+	height: icon.height,
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover'
 }));
@@ -242,8 +241,8 @@ const DeviceLidarCell = styled(Box, { name: 'device-lidar-cell' })(({ theme, gri
 const DeviceLidarlCellIcon = styled('figure', { name: 'device-lidar-cell-icon' })(({ theme, icon }) => ({
 	margin: '0 auto 8px auto',
 	backgroundImage: icon.url,
-	width: icon.url.width,
-	height: icon.url.height,
+	width: icon.width,
+	height: icon.height,
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover'
 }));
@@ -257,8 +256,8 @@ const DeviceMagsafeCell = styled(Box, { name: 'device-magasafe-cell' })(({ theme
 const DeviceMagasafeCellIcon = styled('figure', { name: 'device-magasafe-cell-icon' })(({ theme, icon }) => ({
 	margin: '0 auto 8px auto',
 	backgroundImage: icon.url,
-	width: icon.url.width,
-	height: icon.url.height,
+	width: icon.width,
+	height: icon.height,
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover'
 }));
@@ -351,6 +350,7 @@ const Grid__Descriptions = [
 				width: '27px',
 				height: '53px'
 			},
+
 			text1: 'Compatible with MagSafe accessories'
 		}
 	},
@@ -594,25 +594,99 @@ const CompareSection = () => {
 					<ArrowForwardIosIcon />
 				</Box>
 				<CompareTable>
-					{Grid__Descriptions.map(({ gridArea, image, device_content }) => (
-						<React.Fragment>
-							<DeviceWrapper gridArea={gridArea.device_wrapper}>
-								<ImageWrapper>
-									<Image image={image} />
-								</ImageWrapper>
-								<DeviceContent>
-									{device_content.new === true ? <NewBanner>New</NewBanner> : null}
-									<DeviceLogo logo={device_content.logo} />
-									<Typography variant='body_reduced'>{device_content.price_tag}</Typography>
-									<DeviceAvailableColor image={device_content.availableColor_logo} />
-									<Typography variant='tout' sx={{ maxWidth: '140px' }}>
-										{device_content.tout}
+					{Grid__Descriptions.map(
+						({
+							gridArea,
+							image,
+							device_content,
+							device_display,
+							device_cellular,
+							device_chip,
+							device_camera,
+							device_lidar,
+							device_magasafe
+						}) => (
+							<React.Fragment key={gridArea.device_wrapper}>
+								<DeviceWrapper gridArea={gridArea.device_wrapper}>
+									<ImageWrapper>
+										<Image image={image} />
+									</ImageWrapper>
+									<DeviceContent>
+										{device_content.new === true ? <NewBanner>New</NewBanner> : null}
+										<DeviceLogo logo={device_content.logo} />
+										<Typography variant='body_reduced'>{device_content.price_tag}</Typography>
+										<DeviceAvailableColor image={device_content.availableColor_logo} />
+										<Typography variant='tout' sx={{ maxWidth: '140px' }}>
+											{device_content.tout}
+										</Typography>
+										<BuyButtonReduced sx={{ mt: '9.6px' }}>Buy</BuyButtonReduced>
+									</DeviceContent>
+								</DeviceWrapper>
+								<DeviceDisplayCell gridArea={gridArea.display_cell}>
+									<Typography variant='body_reduced' component='h4' sx={{ mb: '6px' }}>
+										{device_display.text1}
 									</Typography>
-									<BuyButtonReduced sx={{ mt: '9.6px' }}>Buy</BuyButtonReduced>
-								</DeviceContent>
-							</DeviceWrapper>
-						</React.Fragment>
-					))}
+									<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
+										{device_display.text2}
+										{/*Conditional render footnote */}
+										{device_display.foot_note !== '' ? (
+											<FootNoteNumber>{device_display.foot_note}</FootNoteNumber>
+										) : null}
+									</Typography>
+								</DeviceDisplayCell>
+								<DeviceCellularCell gridArea={gridArea.celluar_cell}>
+									<CellularIcon icon={device_cellular.icon} />
+									<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
+										{device_cellular.text1}
+										{device_cellular.foot_note ? <FootNoteNumber>{device_cellular.foot_note}</FootNoteNumber> : null}
+									</Typography>
+								</DeviceCellularCell>
+								<DeviceChipCell gridArea={gridArea.chip_cell}>
+									<DeviceChipCellIcon icon={device_chip.icon} />
+									<Typography variant='body_reduced'>{device_chip.text1}</Typography>
+									<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
+										{device_chip.text2}
+									</Typography>
+								</DeviceChipCell>
+								<DeviceCameraCell gridArea={gridArea.cameral_cell}>
+									<DeviceCameralCellIcon icon={device_camera.icon} />
+									<Typography variant='body_reduced'>{device_camera.text1}</Typography>
+									<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
+										{device_camera.text2}
+									</Typography>
+								</DeviceCameraCell>
+								<DeviceLidarCell gridArea={gridArea.lidar_cell}>
+									{device_lidar.available === true ? (
+										<React.Fragment>
+											<DeviceLidarlCellIcon icon={device_lidar.icon} />
+											<Typography variant='body_reduced'>{device_lidar.text1}</Typography>
+											<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
+												{device_lidar.text2}
+											</Typography>
+										</React.Fragment>
+									) : (
+										NotAvaliable
+									)}
+								</DeviceLidarCell>
+								<DeviceMagsafeCell gridArea={gridArea.magasafe_cell}>
+									{device_magasafe.available === true ? (
+										<React.Fragment>
+											<DeviceMagasafeCellIcon icon={device_magasafe.icon} />
+											<Typography variant='body_reduced'>{device_magasafe.text1}</Typography>
+										</React.Fragment>
+									) : (
+										NotAvaliable
+									)}
+								</DeviceMagsafeCell>
+								<DeviceCallToActionCell gridArea={gridArea.cta_cell}>
+									<Box sx={{ display: 'flex', alignItems: 'center', color: 'common.link' }}>
+										<Typography variant='body_reduced'>Learn more</Typography>
+										<ArrowForwardIosIcon sx={{ width: '10px', height: '16px', ml: '6px' }} />
+									</Box>
+								</DeviceCallToActionCell>
+							</React.Fragment>
+						)
+					)}
 				</CompareTable>
 			</SectionContent>
 		</Section>
@@ -620,69 +694,3 @@ const CompareSection = () => {
 };
 
 export default CompareSection;
-
-{
-	/* <DeviceDisplayCell gridArea={item.gridArea.display_cell}>
-<Typography variant='body_reduced' component='h4' sx={{ mb: '6px' }}>
-  {item.device_display.text1}
-</Typography>
-<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
-  {item.device_display.text2}
-  {item.device_display.foot_note !== '' ? (
-    <FootNoteNumber>{item.display_cell.foot_note}</FootNoteNumber>
-  ) : null}
-</Typography>
-</DeviceDisplayCell>
-<DeviceCellularCell gridArea={item.gridArea.celluar_cell}>
-<CellularIcon icon={item.device_cellular.icon} />
-<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
-  {item.device_cellular.text1}
-  {item.device_cellular.foot_note ? (
-    <FootNoteNumber>{item.device_cellular.foot_note}</FootNoteNumber>
-  ) : null}
-</Typography>
-</DeviceCellularCell>
-<DeviceChipCell gridArea={item.gridArea.chip_cell}>
-<DeviceChipCellIcon icon={item.device_chip.icon} />
-<Typography variant='body_reduced'>{item.device_chip.text1}</Typography>
-<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
-  {item.device_chip.text2}
-</Typography>
-</DeviceChipCell>
-<DeviceCameraCell gridArea={item.gridArea.cameral_cell}>
-<DeviceCameralCellIcon icon={item.device_camera.icon} />
-<Typography variant='body_reduced'>{item.device_camera.text1}</Typography>
-<Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
-  {item.device_camera.text2}
-</Typography>
-</DeviceCameraCell>
-<DeviceLidarCell gridArea={item.gridArea.lidar_cell}>
-{item.device_lidar.available === true ? (
-  <React.Fragment>
-    <DeviceLidarlCellIcon icon={item.device_lidar.icon} />
-    <Typography variant='body_reduced'>{item.device_lidar.text1}</Typography>
-    <Typography variant='body_reduced' component='p' sx={{ color: 'grey.700' }}>
-      {item.device_lidar.text2}
-    </Typography>
-  </React.Fragment>
-) : (
-  NotAvaliable
-)}
-</DeviceLidarCell>
-<DeviceMagsafeCell gridArea={item.gridArea.magasafe_cell}>
-{item.device_magasafe === true ? (
-  <React.Fragment>
-    <DeviceMagasafeCellIcon icon={item.device_magasafe.icon} />
-    <Typography variant='body_reduced'>{item.device_magasafe.text1}</Typography>
-  </React.Fragment>
-) : (
-  NotAvaliable
-)}
-</DeviceMagsafeCell>
-<DeviceCallToActionCell gridArea={item.gridArea.cta_cell}>
-<Box sx={{ display: 'flex', alignItems: 'center', color: 'common.link' }}>
-  <Typography variant='body_reduced'>Learn more</Typography>
-  <ArrowForwardIosIcon sx={{ width: '10px', height: '16px', ml: '6px' }} />
-</Box>
-</DeviceCallToActionCell> */
-}
