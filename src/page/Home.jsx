@@ -5,6 +5,7 @@ import ProductNavbar from '../components/productNav/ProductNavbar';
 import Offset from '../components/utili/Offset';
 import Ribbon from '../components/ribbon/Ribbon';
 import HeroSection from '../sections/hero/HeroSection';
+import CompareSection from '../sections/compare/CompareSection';
 const Home = () => {
 	return (
 		<React.Fragment>
@@ -14,6 +15,7 @@ const Home = () => {
 				<Offset />
 				<Ribbon />
 				<HeroSection />
+				<CompareSection />
 			</Grid>
 		</React.Fragment>
 	);

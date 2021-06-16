@@ -15,7 +15,8 @@ const theme = createTheme({
 			black: '#1d1d1f',
 			new: '#f56300',
 			ribbon_background_color_initial: '#0071e3',
-			ribbon_background_color: '#1d1d1f'
+			ribbon_background_color: '#1d1d1f',
+			link: '#06c'
 		}
 	}
 });
