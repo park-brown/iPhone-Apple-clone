@@ -6,7 +6,6 @@ import { styled } from '@material-ui/core/styles';
 const Section = styled(Grid, { name: 'section-retail' })(({ theme }) => ({
 	paddingTop: '62px',
 	width: '100%',
-	height: '2000px',
 	textAlign: 'center',
 	overflow: 'hidden',
 	[theme.breakpoints.up('tablet')]: {
@@ -122,6 +121,53 @@ const FindYourOfferButton = styled(Button, { name: 'find-your-offer-button' })((
 		'&:hover': {
 			backgroundColor: theme.palette.common.button_hover
 		}
+	}
+}));
+const TradeInImage = styled('figure', { name: 'trade-in-image' })(({ theme }) => ({
+	margin: '28px 0 0 -223px',
+	position: 'relative',
+	left: '50%',
+	top: '-15px',
+	backgroundImage: 'url(./retail_section/trade_in_small_2x.jpg)',
+	backgroundSize: 'cover',
+	width: '446px',
+	height: '201px',
+	backgroundRepeat: 'no-repeat',
+	[theme.breakpoints.up('tablet')]: {
+		top: '0px',
+		backgroundImage: 'url(./retail_section/trade_in_medium_2x.jpg)',
+		margin: '24px 0 0 -179px',
+		width: '358px',
+		height: '176px'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		top: '48px',
+		backgroundImage: 'url(./retail_section/trade_in_large_2x.jpg)',
+		margin: '0 0 9px -337.5px',
+		width: '675px',
+		height: '362px'
+	}
+}));
+const UpgradeImage = styled('figure', { name: 'upgrade-iamge' })(({ theme }) => ({
+	margin: '72px 0 0 -270px',
+	position: 'relative',
+	left: '50%',
+	backgroundImage: 'url(./retail_section/iphone_upgrade_program_small_2x.jpg)',
+	backgroundSize: 'cover',
+	width: '540px',
+	height: '146px',
+	backgroundRepeat: 'no-repeat',
+	[theme.breakpoints.up('tablet')]: {
+		backgroundImage: 'url(./retail_section/iphone_upgrade_program_medium_2x.jpg)',
+		margin: '47px 0 0 -179.5px',
+		width: '359px',
+		height: '139px'
+	},
+	[theme.breakpoints.up('laptop')]: {
+		backgroundImage: 'url(./retail_section/iphone_upgrade_program_large_2x.jpg)',
+		margin: '55px 0 0 -337.5px',
+		width: '675px',
+		height: '261px'
 	}
 }));
 const service_provider_description = [
@@ -248,6 +294,19 @@ const apple_card_description = [
 	}
 ];
 const RetailSection = () => {
+	const LearnMore = (
+		<Box
+			sx={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				color: 'common.link',
+				mt: { mobile: '13px' }
+			}}>
+			<Typography variant='body_reduced'>Learn more</Typography>
+			<ArrowForwardIosIcon sx={{ width: '10px', height: '16px', ml: '6px' }} />
+		</Box>
+	);
 	return (
 		<Section>
 			<Typography variant='section_headline' component='h2'>
@@ -327,7 +386,7 @@ const RetailSection = () => {
 				</ContentItem>
 				<ContentItem
 					sx={{
-						mb: { mobile: '15px', tablet: '20px', laptop: '30px' }
+						mb: { mobile: '15px', tablet: '20px', laptop: '30px', backgroundColor: '#fff' }
 					}}
 					mobile={2}
 					tablet={2}>
@@ -337,8 +396,7 @@ const RetailSection = () => {
 							display: 'flex',
 							flexDirection: 'row',
 							justifyContent: 'center',
-							flexWrap: 'wrap',
-							backgroundColor: '#fff'
+							flexWrap: 'wrap'
 						}}>
 						{/*image wrapper */}
 						<Box
@@ -383,19 +441,97 @@ const RetailSection = () => {
 									<BreakLine laptop='show' /> with <BreakLine mobile='show' />
 									Apple Card Monthly Installments.
 								</Typography>
-								<Box
-									sx={{
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
-										color: 'common.link',
-										mt: { mobile: '13px' }
-									}}>
-									<Typography variant='body_reduced'>Learn more</Typography>
-									<ArrowForwardIosIcon sx={{ width: '10px', height: '16px', ml: '6px' }} />
-								</Box>
+								{LearnMore}
 							</Box>
 						</Box>
+					</Box>
+				</ContentItem>
+
+				<ContentItem
+					mobile={2}
+					tablet={1}
+					sx={{
+						width: '100%',
+						mb: { mobile: '15px', tablet: '20px' },
+						pr: { mobile: 0, tablet: '10px' },
+						textAlign: 'center'
+					}}>
+					<Box
+						sx={{
+							width: '100%',
+							minHeight: '520px',
+							backgroundColor: '#fff',
+							p: { mobile: '14px 6.25% 0', tablet: '0 27px', laptop: '0 40px' },
+							display: 'flex',
+							flexDirection: 'column',
+							justifyContent: 'space-between',
+							overflow: 'hidden'
+						}}>
+						{/*text container */}
+						<Box sx={{ width: '100%', maxWidth: { mobile: '340px', tablet: '290px', laptop: '455px' }, mx: 'auto' }}>
+							<Typography
+								variant='tile_headline'
+								component='h3'
+								sx={{ mt: { mobile: '46px', tablet: '49px', laptop: '52px' } }}>
+								Trade in your smartphone for <BreakLine tablet='show' /> credit.
+							</Typography>
+							<Typography
+								variant='tile_copy'
+								component='p'
+								sx={{ color: 'grey.700', mt: { mobile: '20px', tablet: '17px', laptop: '25px' } }}>
+								With Apple Trade In, you can get <BreakLine tablet='show' /> credit
+								<BreakLine mobile='show' /> toward a new iPhone when you trade in <BreakLine mobile='show' />
+								an eligible smartphone.
+								<BreakLine mobile='show' tablet='show' />
+								It’s good for you and the planet.
+							</Typography>
+							{LearnMore}
+						</Box>
+						{/*image wrapper */}
+						<TradeInImage />
+					</Box>
+				</ContentItem>
+				<ContentItem
+					mobile={2}
+					tablet={1}
+					sx={{
+						mb: { mobile: '15px', tablet: '20px' },
+						pl: { mobile: 0, tablet: '10px' },
+						textAlign: 'center'
+					}}>
+					<Box
+						sx={{
+							width: '100%',
+							height: '100%',
+							minHeight: '520px',
+							backgroundColor: '#fff',
+							p: { mobile: '14px 6.25% 0', tablet: '0 27px', laptop: '0 40px' },
+							display: 'flex',
+							flexDirection: 'column',
+							justifyContent: 'space-between',
+							overflow: 'hidden'
+						}}>
+						{/*text container */}
+						<Box sx={{ width: '100%', maxWidth: { mobile: '340px', tablet: '290px', laptop: '455px' }, mx: 'auto' }}>
+							<Typography
+								variant='tile_headline'
+								component='h3'
+								sx={{ mt: { mobile: '46px', tablet: '49px', laptop: '52px' } }}>
+								The easiest way <BreakLine mobile='show' tablet='show' />
+								to upgrade to the <BreakLine mobile='show' /> latest iPhone.
+							</Typography>
+							<Typography
+								variant='tile_copy'
+								component='p'
+								sx={{ color: 'grey.700', mt: { mobile: '20px', tablet: '17px', laptop: '25px' } }}>
+								Join the iPhone Upgrade <BreakLine mobile='show' /> Program <BreakLine tablet='show' />
+								to get the latest iPhone <BreakLine mobile='show' /> every year, <BreakLine tablet='show' />
+								low monthly <BreakLine mobile='show' /> payments, and AppleCare+.
+							</Typography>
+							{LearnMore}
+						</Box>
+						{/*image wrapper */}
+						<UpgradeImage />
 					</Box>
 				</ContentItem>
 			</SectionCotentWrapper>
