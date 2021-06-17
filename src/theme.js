@@ -155,7 +155,7 @@ theme.typography = {
 	},
 	tile_headline: {
 		[theme.breakpoints.up('mobile')]: {
-			fontSize: '32px',
+			fontSize: '30px',
 			lineHeight: 1.125,
 			fontWeight: 600,
 			letterSpacing: '.004em'
