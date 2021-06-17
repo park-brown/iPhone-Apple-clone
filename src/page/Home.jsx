@@ -6,6 +6,7 @@ import Offset from '../components/utili/Offset';
 import Ribbon from '../components/ribbon/Ribbon';
 import HeroSection from '../sections/hero/HeroSection';
 import CompareSection from '../sections/compare/CompareSection';
+import RetailSection from '../sections/retail/RetailSection';
 const Home = () => {
 	return (
 		<React.Fragment>
@@ -16,6 +17,7 @@ const Home = () => {
 				<Ribbon />
 				<HeroSection />
 				<CompareSection />
+				<RetailSection />
 			</Grid>
 		</React.Fragment>
 	);
