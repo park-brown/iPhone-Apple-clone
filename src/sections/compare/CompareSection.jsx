@@ -112,7 +112,6 @@ const Image = styled('figure', { name: 'device-image' })(({ theme, image }) => (
 		backgroundRepeat: 'no-repeat'
 	},
 	[theme.breakpoints.up('tablet')]: {
-		// backgroundImage: `url("./compare_section/compare_iphone_12_pro__large_2x.jpg")`,
 		backgroundImage: image.tablet.url,
 		width: image.tablet.width,
 		height: image.tablet.height
@@ -150,7 +149,7 @@ const NewBanner = styled('span', { name: 'new-tout-text' })(({ theme }) => ({
 const DeviceAvailableColor = styled('figure', { name: 'device-available-color' })(({ theme, image }) => ({
 	margin: '14px 0px 10px 0px',
 	height: '44px',
-	width: '97px',
+	width: image.url.width || '97px',
 	backgroundImage: image.url.mobile,
 	backgroundSize: 'contain',
 	backgroundRepeat: 'no-repeat',
@@ -454,7 +453,8 @@ const Grid__Descriptions = [
 			},
 			availableColor_logo: {
 				url: {
-					mobile: 'url(./compare_section/swatches_iphone_se__large_2x.jpg)'
+					mobile: 'url(./compare_section/swatches_iphone_se__large_2x.jpg)',
+					width: '71px'
 				}
 			},
 			price_tag: 'From $399',
