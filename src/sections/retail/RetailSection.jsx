@@ -534,6 +534,90 @@ const RetailSection = () => {
 						<UpgradeImage />
 					</Box>
 				</ContentItem>
+				<ContentItem
+					mobile={2}
+					tablet={2}
+					sx={{
+						backgroundColor: '#fff',
+						mb: { mobile: '15px', tablet: '20px', laptop: '30px' },
+						p: { mobile: 0, tablet: '124px 0 0 0', laptop: '134px 0 0 0' },
+						backgroundImage: {
+							mobile: '',
+							tablet: 'url(./retail_section/why_apple_medium_2x.jpg)',
+							laptop: 'url(./retail_section/why_apple_large_2x.jpg)'
+						},
+						width: { mobile: '100%', tablet: '736px', laptop: '1380px' },
+						height: { mobile: '100%', tablet: '514px', laptop: '560px' },
+						backgroundSize: 'cover',
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition: { mobile: '', tablet: 'center bottom', laptop: 'center bottom' },
+						zIndex: 1,
+						position: 'relative'
+					}}>
+					<Box
+						className='image-top-small'
+						component='figure'
+						sx={{
+							position: 'relative',
+							left: '50%',
+							margin: '0 0 0 -367px',
+							width: '734px',
+							height: '315px',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+							backgroundImage: 'url(./retail_section/why_apple_top_small_2x.jpg)',
+							display: { mobile: 'block', tablet: 'none' },
+							zIndex: 1
+						}}></Box>
+					<Box
+						className='content-wrapper'
+						sx={{
+							position: 'relative',
+							zIndex: 2,
+							p: { mobile: '0 6.25%' },
+							margin: { mobile: '-138px 0 0 0', tablet: '0' },
+							width: '100%'
+						}}>
+						<Box className='copy-wrapper' sx={{ maxWidth: { mobile: '280px', tablet: '500px' }, mx: 'auto' }}>
+							<Typography variant='tile_headline' component='h3'>
+								Why Apple is <BreakLine mobile='show' />
+								the best
+								<BreakLine tablet='show' /> place <BreakLine mobile='show' /> to buy iPhone.
+							</Typography>
+							<Typography
+								variant='tile_copy'
+								sx={{
+									color: 'grey.700',
+									mx: 'auto',
+									mt: { mobile: '20px', tablet: '17px', laptop: '25px' },
+									maxWidth: { mobile: '280px', tablet: '375px', laptop: '460px' }
+								}}
+								component='p'>
+								You can choose a payment option <BreakLine mobile='show' /> that works for you, pay less with a
+								trade‑in, connect your new iPhone <BreakLine mobile='show' /> to your carrier, and get set up{' '}
+								<BreakLine mobile='show' />
+								quickly.
+								<BreakLine tablet='show' /> You can also chat with a Specialist anytime.
+							</Typography>
+							{LearnMore}
+						</Box>
+					</Box>
+					<Box
+						className='image-bottom-small'
+						component='figure'
+						sx={{
+							position: 'relative',
+							left: '50%',
+							margin: '0 0 0 -367px',
+							width: '734px',
+							height: '187px',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+							backgroundImage: 'url(./retail_section/why_apple_bottom_small_2x.jpg)',
+							display: { mobile: 'block', tablet: 'none' },
+							zIndex: 1
+						}}></Box>
+				</ContentItem>
 			</SectionCotentWrapper>
 		</Section>
 	);
