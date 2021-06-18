@@ -54,7 +54,7 @@ const FootNote = styled('sup', { name: 'section-footnote' })(({ theme }) => ({
 	verticalAlign: 'baseline',
 	fontFeatureSettings: `'numr'`
 }));
-const BreakLine = styled('br', { name: 'breakline' })(({ theme, mobile, tablet, laptop }) => ({
+export const BreakLine = styled('br', { name: 'breakline' })(({ theme, mobile, tablet, laptop }) => ({
 	display: `${mobile === 'show' ? 'block' : 'none'}`,
 	[theme.breakpoints.up('tablet')]: {
 		display: `${tablet === 'show' ? 'block' : 'none'}`

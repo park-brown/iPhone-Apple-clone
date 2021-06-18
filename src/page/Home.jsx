@@ -8,6 +8,7 @@ import HeroSection from '../sections/hero/HeroSection';
 import CompareSection from '../sections/compare/CompareSection';
 import RetailSection from '../sections/retail/RetailSection';
 import AccessoriesSection from '../sections/accessories/AccessoriesSection';
+import BuystripSection from '../sections/buystrip/BuystripSection';
 const Home = () => {
 	return (
 		<React.Fragment>
@@ -20,6 +21,7 @@ const Home = () => {
 				<CompareSection />
 				<RetailSection />
 				<AccessoriesSection />
+				<BuystripSection />
 			</Grid>
 		</React.Fragment>
 	);
