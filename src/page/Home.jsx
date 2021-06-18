@@ -7,6 +7,7 @@ import Ribbon from '../components/ribbon/Ribbon';
 import HeroSection from '../sections/hero/HeroSection';
 import CompareSection from '../sections/compare/CompareSection';
 import RetailSection from '../sections/retail/RetailSection';
+import AccessoriesSection from '../sections/accessories/AccessoriesSection';
 const Home = () => {
 	return (
 		<React.Fragment>
@@ -18,6 +19,7 @@ const Home = () => {
 				<HeroSection />
 				<CompareSection />
 				<RetailSection />
+				<AccessoriesSection />
 			</Grid>
 		</React.Fragment>
 	);

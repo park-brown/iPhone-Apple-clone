@@ -308,7 +308,7 @@ const RetailSection = () => {
 		</Box>
 	);
 	return (
-		<Section>
+		<Section component='section'>
 			<Typography variant='section_headline' component='h2'>
 				Ways to Buy iPhone
 			</Typography>
@@ -617,6 +617,40 @@ const RetailSection = () => {
 							display: { mobile: 'block', tablet: 'none' },
 							zIndex: 1
 						}}></Box>
+				</ContentItem>
+				<ContentItem
+					mobile={2}
+					tablet={2}
+					sx={{
+						width: { mobile: '100%', tablet: '736px', laptop: '1380px' },
+						minHeight: { mobile: '620px', tablet: '514px', laptop: '560px' },
+						pt: { mobile: '232px', tablet: 0 },
+						display: 'flex',
+						alignItems: { moile: 'flex-start', tablet: 'center' },
+						justifyContent: 'center',
+						backgroundImage: {
+							mobile: 'url(./retail_section/ios15_preview_small_2x.jpg)',
+							tablet: 'url(./retail_section/ios15_preview_medium_2x.jpg)',
+							laptop: 'url(./retail_section/ios15_preview_large_2x.jpg)'
+						},
+						backgroundSize: 'cover',
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition: 'center bottom',
+						backgroundColor: '#fff',
+						mb: { mobile: '15px', tablet: '20px', laptop: '30px' }
+					}}>
+					<Box className='content-wrapper'>
+						<Typography variant='tile_headline' component='h3'>
+							iOS 15
+						</Typography>
+						<Typography
+							variant='tile_copy'
+							sx={{ color: 'grey.700', mt: { mobile: '13.6px', tablet: '13.6px', laptop: '16.8px' } }}
+							compoent='p'>
+							in touch. in the moment
+						</Typography>
+						{LearnMore}
+					</Box>
 				</ContentItem>
 			</SectionCotentWrapper>
 		</Section>

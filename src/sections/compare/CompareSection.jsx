@@ -578,7 +578,7 @@ const CompareSection = () => {
 	);
 
 	return (
-		<Section>
+		<Section component='section'>
 			<SectionContent>
 				<Typography variant='section_headline'>Which iPhone is right for you?</Typography>
 				<Box
