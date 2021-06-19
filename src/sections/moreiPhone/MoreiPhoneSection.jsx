@@ -9,6 +9,7 @@ import AppleNews from './AppleNews';
 import AppleArcade from './AppleArcade';
 import AppleFitness from './AppleFitness';
 import AppleGiftCard from './AppleGiftCard';
+import AppleResearch from './AppleResearch';
 const MoreiPhoneSection = () => {
 	return (
 		<Grid
@@ -45,6 +46,7 @@ const MoreiPhoneSection = () => {
 				<AppleArcade />
 				<AppleFitness />
 				<AppleGiftCard />
+				<AppleResearch />
 			</Box>
 		</Grid>
 	);

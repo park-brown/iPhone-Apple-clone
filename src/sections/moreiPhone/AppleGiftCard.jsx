@@ -37,7 +37,7 @@ const AppleGiftCard = () => {
 						component='h2'
 						sx={{
 							m: { mobile: '45px auto 0 auto', tablet: '44px auto 0 auto', laptop: '68px auto 0 auto' },
-							width: { mobile: '136px', tablet: '139px', laptop: '213px' },
+							width: { mobile: '139px', tablet: '139px', laptop: '213px' },
 							height: { mobile: '25px', tablet: '27px', laptop: '40px' },
 							backgroundImage: {
 								mobile: 'url(./more_iphone_section/gift_card_logo_small_2x.png)',
