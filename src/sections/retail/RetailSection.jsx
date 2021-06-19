@@ -406,7 +406,7 @@ const RetailSection = () => {
 								order: { mobile: 2, tablet: 2, laptop: 1 }
 							}}>
 							{apple_card_description.map(({ logo }) => (
-								<ServiceProviderLogo logo={logo} />
+								<ServiceProviderLogo key={logo.url.mobile} logo={logo} />
 							))}
 						</Box>
 						{/*text container */}
