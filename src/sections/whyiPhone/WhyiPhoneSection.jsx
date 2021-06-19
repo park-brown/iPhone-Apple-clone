@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Box, Typography, Button } from '@material-ui/core';
+import { Grid, Box, Typography } from '@material-ui/core';
 import CustomLink from '../accessories/CustomLink';
 const WhyiPhoneSection = () => {
 	return (

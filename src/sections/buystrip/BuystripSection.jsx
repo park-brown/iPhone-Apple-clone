@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Box, Typography } from '@material-ui/core';
 import CustomLink from '../accessories/CustomLink';
-import { BreakLine } from '../retail/RetailSection';
+
 const BuystripSection = () => {
 	return (
 		<Grid
