@@ -7,8 +7,9 @@ const FooterAccordion = styled(Accordion, { name: 'footer-accordian' })(({ theme
 	backgroundColor: '#f5f5f7',
 	color: '#1d1d1f',
 	height: 'auto',
-	borderBottom: '1px solid #d2d2d7',
 	boxShadow: 'none',
+	borderBottom: '1px solid #a1a1a6',
+	'&::before': { height: '0px' }, //psudo element affect border-bottom, height set to 0 to delete it
 	'& .MuiAccordionSummary-root': {
 		padding: 0,
 		minHeight: '0px',
@@ -25,6 +26,7 @@ const FooterAccordion = styled(Accordion, { name: 'footer-accordian' })(({ theme
 	'& .MuiAccordionSummary-expandIconWrapper': {
 		marginRight: '20px'
 	},
+
 	'& .MuiCollapse-wrapper': {
 		backgroundColor: '#f5f5f7',
 		color: '#1d1d1f'
