@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/iPhone-Apple-clone/static/js/main.0e945b12.chunk.js",
+    "main.js.map": "/iPhone-Apple-clone/static/js/main.0e945b12.chunk.js.map",
+    "runtime-main.js": "/iPhone-Apple-clone/static/js/runtime-main.116de18d.js",
+    "runtime-main.js.map": "/iPhone-Apple-clone/static/js/runtime-main.116de18d.js.map",
+    "static/js/2.b7fe734f.chunk.js": "/iPhone-Apple-clone/static/js/2.b7fe734f.chunk.js",
+    "static/js/2.b7fe734f.chunk.js.map": "/iPhone-Apple-clone/static/js/2.b7fe734f.chunk.js.map",
+    "index.html": "/iPhone-Apple-clone/index.html",
+    "static/js/2.b7fe734f.chunk.js.LICENSE.txt": "/iPhone-Apple-clone/static/js/2.b7fe734f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.116de18d.js",
+    "static/js/2.b7fe734f.chunk.js",
+    "static/js/main.0e945b12.chunk.js"
+  ]
+}
